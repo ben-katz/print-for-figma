@@ -66,7 +66,7 @@
     <div class="custom-label">
       <span>Customize & Create</span>
     </div>
-    <input id='custom-name' name='name' type='text' placeholder="Name"></input>
+    <input id='custom-name' onchange='nameUpdate()' name='name' type='text' placeholder="Name"></input>
     <select id='custom-unit' name='unit' onchange='changeSizeMinMax()'>
       <option value="inches" selected="selected">Inches</option>
       <option value="mm">Millimeters</option>
@@ -308,8 +308,6 @@ custom_button.addEventListener('click', function (event) {
     }
     parent.postMessage({ pluginMessage: selectedPreset }, '*')
   }
-
-
 });
 
 function changeSizeMinMax() {
@@ -329,9 +327,30 @@ function changeSizeMinMax() {
     custom_height.setAttribute('max', 1000)
     custom_height.value = ''
   }
+  var all_presets = document.querySelectorAll('.preset');
+    for(let j = 0; j < all_presets.length; j++) {
+      if (all_presets[j].classList.contains('preset-hover')) {
+        all_presets[j].classList.remove('preset-hover');
+      }
+    }
+}
+
+function nameUpdate() {
+  var all_presets = document.querySelectorAll('.preset');
+    for(let j = 0; j < all_presets.length; j++) {
+      if (all_presets[j].classList.contains('preset-hover')) {
+        all_presets[j].classList.remove('preset-hover');
+      }
+    }
 }
 
 function dimensionUpdate() {
+  var all_presets = document.querySelectorAll('.preset');
+    for(let j = 0; j < all_presets.length; j++) {
+      if (all_presets[j].classList.contains('preset-hover')) {
+        all_presets[j].classList.remove('preset-hover');
+      }
+    }
   if (custom_button.classList.contains('button-disabled')) {
       custom_button.classList.remove('button-disabled')
   }
