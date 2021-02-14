@@ -1,56 +1,23 @@
-<div class="header">
+
+
+
+<!-- <div class="header">
+  <link rel="stylesheet" href="../../node_modules/figma-plugin-ds/dist/figma-plugin-ds.css">
   <h2 class='title'>Print</h2>
   <h3 class='subtitle'>for Figma</h3>
   <div class="art">
     <?xml version="1.0"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="117" height="115" viewBox="0 0 117 115" fill="none"><g filter="url(#filter0_d)"><rect width="52.0905" height="80.5034" transform="matrix(0.866044 0.499967 -0.866044 0.499967 142.624 40.3251)" fill="white"/></g><g filter="url(#filter1_d)"><rect width="40.2517" height="66.2969" transform="matrix(0.866044 -0.499967 0.866044 0.499967 47.0303 23.1245)" fill="white"/></g><g filter="url(#filter2_d)"><rect width="40.2517" height="52.0905" transform="matrix(0.866044 0.499967 -0.866044 0.499967 66.5278 39.1675)" fill="white"/></g><g filter="url(#filter3_d)"><rect width="26.0452" height="40.2517" transform="matrix(0.866044 -0.499967 0.866044 0.499967 4 30.0213)" fill="white"/></g><defs><filter id="filter0_d" x="66.0677" y="35.5138" width="127.493" height="78.9538" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dx="-0.506448" dy="1.51934"/><feGaussianBlur stdDeviation="3.1653"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter><filter id="filter1_d" x="43.5575" y="0.55622" width="98.7069" height="59.7018" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dx="-0.25724" dy="0.77172"/><feGaussianBlur stdDeviation="1.60775"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter><filter id="filter2_d" x="17.9425" y="36.7237" width="86.4035" height="52.5991" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dx="-0.25724" dy="0.77172"/><feGaussianBlur stdDeviation="1.60775"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter><filter id="filter3_d" x="0.527261" y="14.5557" width="63.8471" height="39.5773" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dx="-0.25724" dy="0.77172"/><feGaussianBlur stdDeviation="1.60775"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter></defs></svg>
   </div>
-</div>
+</div> -->
 
-<div class="settings">
-
-  <div class="setting setting-dpi">
-    <label for='dpis'>DPI</label>
-    <select name='dpis' id="dpis">
-      <option value="72" selected="selected">72 (default)</option>
-      <option value="150">150</option>
-      <option value="300">300</option>
-    </select>
-    <i class="fas help-dpi fa-question-circle"></i>
-  </div>
-
-  <div class="setting setting-pages">
-    <label for='pages'>Pages</label>
-    <input type='number' min='1' max='16' value='1' name='pages' id="pages">
-    <i class="fas help-pages fa-question-circle"></i>
-  </div>
-
-  <div class="setting setting-orientation disabled">
-    <label for='orientation'>Orientation</label>
-    <select name='orientation' id="orientation">
-      <option value="use-preset" selected="selected">Use Preset (default)</option>
-      <option value="portrait">Portrait</option>
-      <option value="landscape">Landscape</option>
-    </select>
-    <i class="fas help-orientation fa-question-circle"></i>
-  </div>
-
-  <div class="setting setting-bleed disabled">
-    <label for='bleed'>Bleed</label>
-    <select name='bleed' id="bleed">
-      <option value="none" selected="selected">None (default)</option>
-      <option value="0.125">1/8"</option>
-      <option value="0.5">1/2"</option>
-    </select>
-    <i class="fas help-bleed fa-question-circle"></i>
-  </div>
-
-
-  <!-- <div class="settings-advanced">
-    <span class='show-advanced'>Show Advanced Settings</span>
-  </div> -->
-
-</div>
+<!-- <script src="https://cdn.jsdelivr.net/gh/thomas-lowry/figma-plugin-ds/dist/iife/figma-plugin-ds.js"></script>
+<script>
+    selectMenu.init(); //initiates the select menu component
+    disclosure.init(); //initiates the disclosure component
+</script> -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <div class="flex-wrapper">
   
@@ -62,24 +29,68 @@
     </div>
   </div>
 
-  <div class="sidebar">
-    <div class="custom-label">
-      <span>Customize & Create</span>
+  <div class="settings">
+
+
+    <div class="setting setting-unit">
+      <div class="setting-label-container">
+        <label for="unit">Unit</label>
+      </div>
+      <select id='custom-unit' name='unit' onchange='changeSizeMinMax()'>
+        <option value="inches" selected="selected">inch</option>
+        <option value="mm">mm</option>
+      </select>
     </div>
-    <input id='custom-name' onchange='nameUpdate()' name='name' type='text' placeholder="Name"></input>
-    <select id='custom-unit' name='unit' onchange='changeSizeMinMax()'>
-      <option value="inches" selected="selected">Inches</option>
-      <option value="mm">Millimeters</option>
-    </select>
+  
+    <div class="setting setting-pages">
+      <div class="setting-label-container">
+        <label for='pages'>Pages</label>
+        <!-- <i class="fas help-pages fa-question-circle"></i> -->
+      </div>
+      <input type='number' min='1' max='16' value='1' name='pages' id="pages">
+    </div>
+  
+    <div class="setting setting-bleed">
+      <div class="setting-label-container">
+        <label for='bleed'>Bleed</label>
+        <i class="fas help-bleed fa-question-circle"></i>
+      </div>
+      <input type='number' min='0' max='2' step="0.125" name='bleed' type='number' value='0' name='bleed' id="bleed">
+    </div>
+  
+    <div class="setting setting-dpi">
+      <div class="setting-label-container">
+        <label for='dpis'>DPI</label>
+        <i class="fas help-dpi fa-question-circle"></i>
+      </div>
+      <select name='dpis' id="dpis">
+        <option value="72" selected="selected">72</option>
+        <option value="150">150</option>
+        <option value="300">300</option>
+      </select>
+    </div>
+  
+    <!-- <div class="settings-advanced">
+      <span class='show-advanced'>Show Advanced Settings</span>
+    </div> -->
+  
+  </div>
+
+  <div class="sidebar">
+    <!-- <div class="custom-label">
+      <span>Customize & Create</span>
+    </div> -->
+    <label class='sidebar-label' for="name">Name</label>
+    <input id='custom-name' onchange='nameUpdate()' name='name' type='text' placeholder="My Document"></input>
+
+    <label class='sidebar-label' for="dimension">Dimensions (W x H)</label>
     <div class="dimensions">
-      <input id='custom-width' onchange='dimensionUpdate()' class='dimension d-width' min='1' max='30' name='width' type='number' placeholder="Width"></input>
+      <input id='custom-width' onchange='dimensionUpdate()' class='dimension d-width' min='1' max='30' step="0.125" name='width' type='number' placeholder="Width"></input>
       <i class="fas d-x fa-times"></i>
-      <input id='custom-height' onchange='dimensionUpdate()' class='dimension d-height' name='height' min='1' max='30' type='number' placeholder="Height"></input>
+      <input id='custom-height' onchange='dimensionUpdate()' class='dimension d-height' name='height' min='1' max='30' step="0.125" type='number' placeholder="Height"></input>
     </div>
     <div class="button-wrapper button-create button-disabled">
-      <div id='custom-button'>
-        <span>Create Document</span>
-      </div>
+        <span>Please Enter Dimensions</span>
     </div>
   </div>
 
@@ -99,6 +110,70 @@
 <script>
 
 var presets = [
+  {
+    name: 'Letter',
+    unit: 'inches',
+    width: '8.5',
+    height: '11',
+    category: 'ansi',
+    icon: 'fa-file-alt'
+  },
+  {
+    name: 'Half Letter',
+    unit: 'inches',
+    width: '5.5',
+    height: '8.5',
+    category: 'ansi',
+    icon: 'fa-file-alt'
+  },
+  {
+    name: 'Legal',
+    unit: 'inches',
+    width: '8.5',
+    height: '14',
+    category: 'ansi',
+    icon: 'fa-file-alt'
+  },
+  {
+    name: 'Ledger',
+    unit: 'inches',
+    width: '11',
+    height: '17',
+    category: 'ansi',
+    icon: 'fa-file-alt'
+  },
+  {
+    name: 'Govt. Letter',
+    unit: 'inches',
+    width: '8',
+    height: '10.5',
+    category: 'misc',
+    icon: 'fa-file-alt'
+  },
+  {
+    name: 'Card',
+    unit: 'inches',
+    width: '3.5',
+    height: '2',
+    category: 'misc',
+    icon: 'fa-file icon-landscape'
+  },
+  {
+    name: 'Postcard',
+    unit: 'inches',
+    width: '7',
+    height: '5',
+    category: 'misc',
+    icon: 'fa-file icon-landscape'
+  },
+  {
+    name: 'Poster',
+    unit: 'inches',
+    width: '24',
+    height: '36',
+    category: 'misc',
+    icon: 'fa-file icon-portrait'
+  },
   {
     name: 'A3',
     unit: 'mm',
@@ -130,77 +205,13 @@ var presets = [
     height: '148',
     category: 'iso',
     icon: 'fa-file-alt'
-  },
+  }
   /*{
     name: 'A7',
     unit: 'mm',
     width: '74',
     height: '105'
   },*/
-  {
-    name: 'Half Letter',
-    unit: 'inches',
-    width: '5.5',
-    height: '8.5',
-    category: 'ansi',
-    icon: 'fa-file-alt'
-  },
-  {
-    name: 'Letter',
-    unit: 'inches',
-    width: '8.5',
-    height: '11',
-    category: 'ansi',
-    icon: 'fa-file-alt'
-  },
-  {
-    name: 'Legal',
-    unit: 'inches',
-    width: '8.5',
-    height: '14',
-    category: 'ansi',
-    icon: 'fa-file-alt'
-  },
-  {
-    name: 'Ledger',
-    unit: 'inches',
-    width: '11',
-    height: '17',
-    category: 'ansi',
-    icon: 'fa-file-alt'
-  },
-  {
-    name: 'Govt. Letter',
-    unit: 'inches',
-    width: '8',
-    height: '10.5',
-    category: 'misc',
-    icon: 'fa-file-alt'
-  },
-  {
-    name: 'Business Card',
-    unit: 'inches',
-    width: '3.5',
-    height: '2',
-    category: 'misc',
-    icon: 'fa-file icon-landscape'
-  },
-  {
-    name: 'Postcard',
-    unit: 'inches',
-    width: '7',
-    height: '5',
-    category: 'misc',
-    icon: 'fa-file icon-landscape'
-  },
-  {
-    name: 'Poster',
-    unit: 'inches',
-    width: '24',
-    height: '36',
-    category: 'misc',
-    icon: 'fa-file icon-portrait'
-  }
   ]
 
 var selectedPreset = {}
@@ -230,8 +241,10 @@ for (let i = 0; i < presets.length; i++) {
   // div.setAttribute('data-height', preset.height)
   div.classList.add('preset')
   div.innerHTML = `
-    <i class="fas ${icon}"></i>
-    <span class='name'>${name}</span>
+    <div class='preset-name-icon'>
+      <i class="fas ${icon}"></i>
+      <span class='name'>${name}</span>
+    </div>
     <span class='size'>${size_string}</span>
     `;
 
@@ -256,6 +269,7 @@ for (let i = 0; i < presets.length; i++) {
 
     if (custom_button_wrapper.classList.contains('button-disabled')) {
       custom_button_wrapper.classList.remove('button-disabled')
+      custom_button_wrapper.innerHTML = `<span>Create Document</span>`
     }
   
   }
@@ -269,7 +283,7 @@ tippy('.help-dpi', {
         animation: 'shift-away',
         hideOnClick: false,
         placement: 'top',
-        offset: -60
+        //offset: -60
 });
 
 tippy('.help-pages', {
@@ -277,7 +291,7 @@ tippy('.help-pages', {
       animation: 'shift-away',
       hideOnClick: false,
       placement: 'top',
-      offset: -60
+      //offset: -60
 });
 
 tippy('.help-orientation', {
@@ -289,7 +303,7 @@ tippy('.help-orientation', {
 });
 
 tippy('.help-bleed', {
-      content: `Bleed is the area to be "trimmed" from the page so as to have an "edge-to-edge" print. 1/8" bleed is common in North America.`,
+      content: `Bleed is the area to be "trimmed" from the page so as to have an "edge-to-edge" print. Bleed will increase the document size so it maintains it's dimensions.`,
       animation: 'shift-away',
       hideOnClick: false,
       placement: 'top',
@@ -300,8 +314,9 @@ var custom_name = document.querySelector('#custom-name')
 var custom_unit = document.querySelector('#custom-unit')
 var custom_width = document.querySelector('#custom-width')
 var custom_height = document.querySelector('#custom-height')
-var custom_button = document.querySelector('#custom-button')
+var custom_button = document.querySelector('.button-create')
 var custom_button_wrapper = document.querySelector('.button-create')
+var bleed = document.querySelector('#bleed')
 
 custom_button.addEventListener('click', function (event) {
   var dpi = document.querySelector('#dpis').value;
@@ -310,7 +325,7 @@ custom_button.addEventListener('click', function (event) {
   var width = custom_width.value;
   var height = custom_height.value;
   var pages = document.querySelector('#pages').value;
-  selectedPreset = {name: name, unit: unit, width: width, height: height, dpi: dpi, pages: pages}
+  selectedPreset = {name: name, unit: unit, width: width, height: height, dpi: dpi, pages: pages, bleed: bleed.value}
   
   if (custom_height.value != '' && custom_width.value != '') {
     if (custom_name.value == '') {
@@ -328,6 +343,11 @@ function changeSizeMinMax() {
     custom_height.setAttribute('min', 1)
     custom_height.setAttribute('max', 30)
     custom_height.value = ''
+
+    bleed.value = 0
+    bleed.setAttribute('step', 0.125)
+    bleed.setAttribute('max', 2)
+
   }
   if (custom_unit.value == 'mm') {
     custom_width.setAttribute('min', 30)
@@ -336,6 +356,11 @@ function changeSizeMinMax() {
     custom_height.setAttribute('min', 30)
     custom_height.setAttribute('max', 1000)
     custom_height.value = ''
+
+    bleed.value = 0
+    bleed.setAttribute('step', 1)
+    bleed.setAttribute('max', 50)
+
   }
   var all_presets = document.querySelectorAll('.preset');
   for(let j = 0; j < all_presets.length; j++) {
@@ -364,9 +389,11 @@ function dimensionUpdate() {
     }
   if (custom_button_wrapper.classList.contains('button-disabled')) {
     custom_button_wrapper.classList.remove('button-disabled')
+    custom_button_wrapper.innerHTML = `<span>Create Document</span>`
   }
   if (custom_width.value == '' || custom_height.value == '') {
     custom_button_wrapper.classList.add('button-disabled')
+    custom_button_wrapper.innerHTML = `<span>Please Enter Dimensions</span>`
   }
 }
 
@@ -375,12 +402,12 @@ function dimensionUpdate() {
 <style>
 
 * {
-  font-family: 'Roboto';
+  font-family: 'Inter', sans-serif;
 }
 
 body {
   overflow-y: hidden;
-  font-family: 'Roboto';
+  font-family: 'Inter', sans-serif;
   background-color: #f0f0f0;
   padding: 10px;
 }
@@ -393,7 +420,8 @@ body {
 
 .flex-wrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  max-height: 660px;
 }
 
 .art {
@@ -409,14 +437,34 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   background-color: #fff;
-  border-bottom: 1px solid #eee; 
+  border-bottom: 0px solid #eee; 
+  box-sizing: border-box;
+  padding: 12px 5px;
 }
 
-.setting > .fa-question-circle {
-  font-size: 16px;
-  color: #333;
-  margin: auto 10px;
+.sidebar-label {
+  font-weight: 700;
+  margin-left: 2px;
+  margin-bottom: 5px;
+  margin-top: 2px;
+  font-size: 11px;
+  text-transform: uppercase;
 }
+
+.setting-label-container > .fa-question-circle {
+  font-size: 12px;
+  color: #333;
+  margin: auto 4px;
+  opacity: 0.5;
+}
+
+.setting-label-container {
+  margin-bottom: 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
 
 .icon-landscape {
   transform: rotate(90deg);
@@ -424,10 +472,10 @@ body {
 
 .setting {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin: 20px;
+  align-items: flex-start;
+  margin: 8px 20px;
   margin-right: 8px;
 }
 
@@ -435,10 +483,7 @@ body {
   width: 45px;
 }
 
-.setting-dpi > select {
-  width: 48px;
-  text-align: left;
-}
+
 
 .setting > label {
   font-weight: bold;
@@ -447,6 +492,10 @@ body {
 
 .settings-advanced {
   margin: auto 10px;
+}
+
+.setting > input, .setting-select {
+  width: 75px;
 }
 
 .show-advanced {
@@ -469,7 +518,7 @@ input, select {
   padding-left: 7px;
   border-radius: 3px;
   border: 1px solid #fafafa;
-  background-color: #f0f0f0;
+  background-color: #f2f2f2;
   box-sizing: border-box;
 }
 
@@ -494,11 +543,10 @@ input:active, select:active {
   flex-grow: 1;
   filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.05));
   padding: 20px;
-  margin: 15px 0px;
+  margin: 0px 0px;
   margin-right: 0px;
   box-sizing: border-box;
-  height: 465px;
-  max-width: 265px;
+  max-width: 406px;
 }
 
 .sidebar-active {
@@ -506,8 +554,9 @@ input:active, select:active {
 }
 
 .sidebar select {
-  height: 40px;
+  height: 36px;
   margin-bottom: 10px;
+  color: #333;
 }
 
 .dimensions {
@@ -518,14 +567,14 @@ input:active, select:active {
 }
 
 .dimension {
-  width: 130px;
+  width: 165px;
   flex-shrink: 1;
-  height: 40px;
+  height: 36px;
   padding-left: 14px;
 }
 
 .dimension::placeholder {
-  color: #222;
+  color: #5c5c5c;
 }
 
 .d-width {
@@ -534,14 +583,16 @@ input:active, select:active {
 
 .d-x {
   font-size: 3px;
-  transform: scale(0.5);
+  transform: scale(0.6);
   vertical-align: middle;
   margin: auto 3px;
+  padding-left: 5px;
+  padding-bottom: 12px;
   opacity: 0.5;
 }
 
 .sidebar > *::placeholder, .sidebar > select::placeholder {
-  color: #222;
+  color: #5c5c5c;
 }
 
 .custom-label {
@@ -551,13 +602,9 @@ input:active, select:active {
   text-align: center;
 }
 
-.sidebar > label {
-  font-size: 14px;
-  margin-bottom: 5px;
-}
 
 .sidebar > input {
-  height: 40px;
+  height: 36px;
   padding-left: 14px;
   margin-bottom: 10px;
   margin-right: 0px;
@@ -566,8 +613,8 @@ input:active, select:active {
 .button-create {
   width: 100%;
   margin: 0px;
-  margin-top: auto;
-  height: 50px;
+  margin-top: 18px;
+  height: 48px;
   background-color: #3894e9;
   color: #fff;
   font-weight: 600;
@@ -597,6 +644,7 @@ input:active, select:active {
 .button-disabled {
   background-color: #f0f0f0;
   cursor: not-allowed;
+  font-weight: 400;
   color: rgb(160, 160, 160);
   border: 1px solid #E7E7ED;
   -webkit-transition: all 0.2s 0s ease;
@@ -609,17 +657,14 @@ input:active, select:active {
   filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0));
 }
 
-.button-disabled > #custom-button {
+.button-disabled > .button-create {
   pointer-events: none;
 }
 
 .fas {
-  font-size: 24px;
-  margin-bottom: 8px;
-  -webkit-transition: all 0.2s 0s ease;
-  -moz-transition: all 0.2s 0s ease;
-  -o-transition: all 0.2s 0s ease;
-  transition: all 0.2s 0s ease;
+  font-size: 18px;
+  margin-bottom: 2px;
+  margin-right: 12px;
 }
 
 .presets {
@@ -627,14 +672,15 @@ input:active, select:active {
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 5px;
 }
 
 .category {
   display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: -15px 0 0 -15px;
-  margin-bottom: 15px;
+  margin: -6px 0 0 -6px;
+  margin-bottom: 6px;
 }
 
 .category-label {
@@ -644,46 +690,54 @@ input:active, select:active {
 
 .preset {
   color: #5a5a5a;
-  font-family: 'IBM Plex Sans';
-  width: 110px;
-  height: 105px;
+  font-family: 'Inter', sans-serif;
+  width: 199px;
+  height: 42px;
+  padding: 0px 16px;
   border-radius: 1px;
   background-color: #fff;
   border: 1px solid #E7E7ED;
-  margin: 15px 0 0 15px;
+  margin: 6px 0 0 6px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
   cursor: pointer;
   box-sizing: border-box;
   filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.05));
-  -webkit-transition: all 0.2s 0s ease;
-  -moz-transition: all 0.2s 0s ease;
-  -o-transition: all 0.2s 0s ease;
-  transition: all 0.2s 0s ease;
+  -webkit-transition: filter 0.2s 0s ease;
+  -moz-transition: filter 0.2s 0s ease;
+  -o-transition: filter 0.2s 0s ease;
+  transition: filter 0.2s 0s ease;
 }
 
 .preset:hover, .preset-hover {
   filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.05));
   font-weight: bold;
-  color: #4d4d4d;
+  color: #3894e9;
   background-color: #fff;
   border: 1px solid #3894e9;
+  -webkit-transition: filter 0.2s 0s ease;
+  -moz-transition: filter 0.2s 0s ease;
+  -o-transition: filter 0.2s 0s ease;
+  transition: filter 0.2s 0s ease;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 12px;
+  margin-right: 7px;
   -webkit-transition: all 0.2s 0s ease;
   -moz-transition: all 0.2s 0s ease;
   -o-transition: all 0.2s 0s ease;
   transition: all 0.2s 0s ease;
 }
 
-.preset > .name {
-  font-weight: 600;
-  font-size: 14px;
-  -webkit-transition: all 0.2s 0s ease;
-  -moz-transition: all 0.2s 0s ease;
-  -o-transition: all 0.2s 0s ease;
-  transition: all 0.2s 0s ease;
+.preset-name-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .preset > .size {
@@ -696,21 +750,21 @@ input:active, select:active {
 }
 
 .preset-container {
-  margin: 16px 0px;
+  margin: 0px 0px;
+  margin-bottom: 6px;
   margin-right: 0px;
   max-width: 500px;
-  height: calc(100% - 130px);
+  height: calc(100% - 110px);
   box-sizing: border-box;
 }
 
 .header {
-  font-family: 'Montserrat';
-  border: 1px solid #f0f0f0;
+  font-family: 'Montserrat', sans-serif;
   border-bottom: 0px;
   box-sizing: border-box;
   padding: 0px 30px;
   width: 100%;
-  height: 130px;
+  height: 110px;
   background: linear-gradient(130.04deg, #48A7FF 0%, #2579C6 100%);
   color: #fff;
   display: flex;
@@ -726,7 +780,7 @@ input:active, select:active {
 .title {
   font-weight: 700;
   font-size: 44px;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   line-height: 90%;
 }
 
