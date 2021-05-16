@@ -16,6 +16,474 @@
     selectMenu.init(); //initiates the select menu component
     disclosure.init(); //initiates the disclosure component
 </script> -->
+
+<style>
+
+  * {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    overflow-y: hidden;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(45deg, #e7e7ed, #f1f1f1);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    padding: 4px;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  
+  .flex-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-height: 370px;
+  }
+  
+  .art {
+    position: absolute;
+    right: 17px;
+  }
+  
+  .settings-container {
+    border-right: 0.5px solid #f3f3f3;
+    background-color: #fff;
+    padding: 18px 18px;
+    flex-grow: 1;
+    box-sizing: border-box;
+    margin-right: 10px;
+    border: 1px solid #e7e7ed;
+    border-radius: 2px;
+  }
+  
+  .tippy-content {
+      white-space: pre-line;
+  }
+  
+  .settings-title {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .settings-divider {
+    background-color: #e7e7ed;
+    border: 0;
+    margin: 8px 0px;
+    margin-right: 4px;
+    height: 0.5px;
+  }
+  
+  .settings {
+    border-top: 0px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: start;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    flex-grow: 1;
+  }
+  
+  .sidebar-label {
+    font-weight: 700;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    font-size: 11px;
+    width: 100%;
+    text-transform: uppercase;
+  }
+  
+  .setting-label-container > .fa-question-circle {
+    font-size: 12px;
+    color: #333;
+    margin: auto 4px;
+    opacity: 0.5;
+  }
+  
+  .setting-label-container {
+    margin-bottom: 6px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 100%;
+  }
+  
+  
+  
+  .icon-landscape {
+    transform: rotate(90deg);
+  }
+  
+  .setting {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex-grow: 1;
+    margin: 8px 10px;
+  }
+  
+  .setting:first-child {
+    margin-left: 2px;
+  }
+  
+  
+  .setting-pages > input {
+    width: 100%;
+  }
+  
+  
+  .setting > label {
+    font-weight: bold;
+    margin-right: 8px;
+  }
+  
+  .settings-advanced {
+    margin: auto 10px;
+  }
+  
+  .setting > input, .setting-select, .setting > select {
+    width: 100%;
+  }
+  
+  .show-advanced {
+    font-size: 14px;
+    color: #bebebe;
+    margin: auto;
+    cursor: pointer;
+    transition: all 0.4s ease;
+  }
+  
+  .show-advanced:hover {
+    color: #3894e9;
+    transition: all 0.2s ease;
+  
+  }
+  
+  
+  
+  input, select {
+    border: 0px;
+    height: 30px;
+    padding-left: 7px;
+    border-radius: 3px;
+    border: 1px solid #fafafa;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+  }
+  
+  input:focus, select:focus {
+    border: 1px solid #E7E7ED;
+    outline: none;
+    box-sizing: border-box;
+  }
+  
+  input:active, select:active {
+    border: 1px solid #E7E7ED;
+    outline: none;
+    box-sizing: border-box;
+  }
+  
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    border-radius: 2px;
+    background-color: #fff;
+    flex-grow: 1;
+    padding: 20px;
+    margin: 0px 0px;
+    margin-right: 0px;
+    box-sizing: border-box;
+    max-width: 280px;
+    border: 1px solid #e7e7ed;
+  
+  }
+  
+  .sidebar-active {
+    border: 1px solid #3894e9;
+  }
+  
+  .sidebar select {
+    height: 36px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .columns {
+    display: flex;
+    flex-direction: row;
+    
+  }
+  
+  .dimensions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+  }
+  
+  .dimension {
+    flex-shrink: 1;
+    flex-grow: 1;
+    height: 36px;
+    padding-left: 14px;
+    min-width: 0;
+  }
+  
+  .dimension::placeholder {
+    color: #5c5c5c;
+  }
+  
+  .d-width {
+    margin-right: 2px;
+  }
+  
+  .d-x {
+    color: #9e9e9e;
+    font-size: 3px;
+    transform: scale(0.6);
+    vertical-align: middle;
+    margin: auto 3px;
+    padding-left: 8px;
+    padding-bottom: 10px;
+    opacity: 0.5;
+  }
+  
+  .sidebar > *::placeholder, .sidebar > select::placeholder {
+    color: #5c5c5c;
+  }
+  
+  .custom-label {
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  
+  .sidebar > input {
+    height: 36px;
+    padding-left: 14px;
+    margin-bottom: 10px;
+    margin-right: 0px;
+  }
+  
+  .button-create {
+    width: 100%;
+    margin: 0px;
+    margin-top: 18px;
+    height: 48px;
+    background-color: #3894e9;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    line-height: 90%;
+    border-radius: 3px;
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.1));
+    -webkit-transition: all 0.2s 0s ease;
+    -moz-transition: all 0.2s 0s ease;
+    -o-transition: all 0.2s 0s ease;
+    transition: all 0.2s 0s ease;
+  }
+  
+  .button-create:hover {
+    filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.25));
+    -webkit-transition: all 0.2s 0s ease;
+    -moz-transition: all 0.2s 0s ease;
+    -o-transition: all 0.2s 0s ease;
+    transition: all 0.2s 0s ease;
+  }
+  
+  .button-disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+    font-weight: 400;
+    color: rgb(160, 160, 160);
+    border: 1px solid #E7E7ED;
+    -webkit-transition: all 0.2s 0s ease;
+    -moz-transition: all 0.2s 0s ease;
+    -o-transition: all 0.2s 0s ease;
+    transition: all 0.2s 0s ease;
+  }
+  
+  .button-disabled:hover {
+    filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.1));
+  }
+  
+  .button-disabled > .button-create {
+    pointer-events: none;
+  }
+  
+  .fas {
+    font-size: 18px;
+    margin-bottom: 2px;
+    margin-right: 12px;
+  }
+  
+  .presets {
+    margin: 0px 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -3px;
+  }
+  
+  .category {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: -6px 0 0 -6px;
+    margin-bottom: 6px;
+  }
+  
+  .category-label {
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+  
+  .preset {
+    color: #5a5a5a;
+    font-family: 'Inter', sans-serif;
+    width: 189px;
+    height: 42px;
+    padding: 0px 16px;
+    border-radius: 2px;
+    background-color: #fff;
+    border: 1px solid #E7E7ED;
+    margin: 6px 0 0 6px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.05));
+    -webkit-transition: filter 0.2s 0s ease;
+    -moz-transition: filter 0.2s 0s ease;
+    -o-transition: filter 0.2s 0s ease;
+    transition: filter 0.2s 0s ease;
+  }
+  
+  .preset:hover, .preset-hover {
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.05));
+    font-weight: bold;
+    color: #3894e9;
+    background-color: #fff;
+    border: 1px solid #3894e9;
+    -webkit-transition: filter 0.2s 0s ease;
+    -moz-transition: filter 0.2s 0s ease;
+    -o-transition: filter 0.2s 0s ease;
+    transition: filter 0.2s 0s ease;
+  }
+  
+  .name {
+    font-weight: 600;
+    font-size: 12px;
+    margin-right: 7px;
+    -webkit-transition: all 0.2s 0s ease;
+    -moz-transition: all 0.2s 0s ease;
+    -o-transition: all 0.2s 0s ease;
+    transition: all 0.2s 0s ease;
+  }
+  
+  .preset-name-icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .preset > .size {
+    font-weight: normal;
+    font-size: 11px;
+    -webkit-transition: all 0.2s 0s ease;
+    -moz-transition: all 0.2s 0s ease;
+    -o-transition: all 0.2s 0s ease;
+    transition: all 0.2s 0s ease;
+  }
+  
+  .preset-container {
+    margin: 0px 0px;
+    margin-bottom: 6px;
+    margin-right: 0px;
+    max-width: 894px;
+    height: calc(100% - 110px);
+    box-sizing: border-box;
+  }
+  
+  .header {
+    font-family: 'Montserrat', sans-serif;
+    border-bottom: 0px;
+    box-sizing: border-box;
+    padding: 0px 30px;
+    width: 100%;
+    height: 110px;
+    background: linear-gradient(130.04deg, #48A7FF 0%, #2579C6 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .title, .subtitle {
+    margin: 0px;
+  }
+  
+  .title {
+    font-weight: 700;
+    font-size: 44px;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 90%;
+  }
+  
+  .section-title > * {
+    margin-top: 0px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .subtitle {
+    font-weight: 400;
+    font-size: 18px;
+  }
+  
+  .noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+  
+  
+  </style>
+
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -29,46 +497,74 @@
     </div>
   </div>
 
-  <div class="settings">
+  <div class="columns">
+  <div class="settings-container">
+    <span class="noselect settings-title">Document Settings</span>
+    <hr class="settings-divider">
+    <div class="settings">
+      <div class="setting setting-unit">
+        <div class="setting-label-container">
+          <label class='noselect' for="unit">Unit</label>
+        </div>
+        <select id='custom-unit' name='unit' onchange='changeSizeMinMax()'>
+          <option value="inches" selected="selected">inch</option>
+          <option value="mm">mm</option>
+        </select>
+      </div>
+    
+      <div class="setting setting-pages">
+        <div class="setting-label-container">
+          <label class='noselect' for='pages'>Pages</label>
+          <!-- <i class="fas help-pages fa-question-circle"></i> -->
+        </div>
+        <input type='number' min='1' max='16' value='1' name='pages' id="pages">
+      </div>
+    
+      <div class="setting setting-dpi">
+        <div class="setting-label-container">
+          <label class='noselect' for='dpis'>DPI</label>
+          <i class="fas help-dpi fa-question-circle"></i>
+        </div>
+        <select name='dpis' id="dpis">
+          <option value="72" selected="selected">72</option>
+          <option value="150">150</option>
+          <option value="300">300</option>
+        </select>
+      </div>
+    </div>
 
+    <div class="settings">
+      <div class="setting setting-bleed">
+        <div class="setting-label-container">
+          <label class='noselect' for='bleed'>Bleed</label>
+          <i class="fas help-bleed fa-question-circle"></i>
+        </div>
+        <input onchange='bleedUpdate()' type='number' min='0' max='2' step="0.125" name='bleed' type='number' value='0' name='bleed' id="bleed">
+      </div>
 
-    <div class="setting setting-unit">
-      <div class="setting-label-container">
-        <label for="unit">Unit</label>
+      <div class="setting setting-crops-toggle">
+        <div class="setting-label-container">
+          <label class='noselect' for='crops-toggle'>Crop Marks</label>
+          <i class="fas help-crops fa-question-circle"></i>
+        </div>
+        <select class="disabled" name='crops-toggle' id="crops-toggle">
+          <option value="off" selected="selected">Disabled</option>
+          <option value="on-expand">Enabled (Expand Frame to Fit)</option>
+          <option value="on-clip">Enabled (Clip Outside Frame)</option>
+        </select>
       </div>
-      <select id='custom-unit' name='unit' onchange='changeSizeMinMax()'>
-        <option value="inches" selected="selected">inch</option>
-        <option value="mm">mm</option>
-      </select>
+<!-- 
+      <div class="setting setting-crops-offset">
+        <div class="setting-label-container">
+          <label class='noselect' for='crops-offset'>Crop Mark Offset</label>
+        </div>
+        <select name='crops-offset' id="crops-offset">
+          <option value="0" selected="selected">Align to Bleed</option>
+        </select>
+      </div> -->
+
     </div>
-  
-    <div class="setting setting-pages">
-      <div class="setting-label-container">
-        <label for='pages'>Pages</label>
-        <!-- <i class="fas help-pages fa-question-circle"></i> -->
-      </div>
-      <input type='number' min='1' max='16' value='1' name='pages' id="pages">
-    </div>
-  
-    <div class="setting setting-bleed">
-      <div class="setting-label-container">
-        <label for='bleed'>Bleed</label>
-        <i class="fas help-bleed fa-question-circle"></i>
-      </div>
-      <input type='number' min='0' max='2' step="0.125" name='bleed' type='number' value='0' name='bleed' id="bleed">
-    </div>
-  
-    <div class="setting setting-dpi">
-      <div class="setting-label-container">
-        <label for='dpis'>DPI</label>
-        <i class="fas help-dpi fa-question-circle"></i>
-      </div>
-      <select name='dpis' id="dpis">
-        <option value="72" selected="selected">72</option>
-        <option value="150">150</option>
-        <option value="300">300</option>
-      </select>
-    </div>
+    
   
     <!-- <div class="settings-advanced">
       <span class='show-advanced'>Show Advanced Settings</span>
@@ -80,19 +576,20 @@
     <!-- <div class="custom-label">
       <span>Customize & Create</span>
     </div> -->
-    <label class='sidebar-label' for="name">Name</label>
+    <label class='noselect sidebar-label' for="name">Name</label>
     <input id='custom-name' onchange='nameUpdate()' name='name' type='text' placeholder="My Document"></input>
 
-    <label class='sidebar-label' for="dimension">Dimensions (W x H)</label>
+    <label class='noselect sidebar-label' for="dimension">Dimensions (W x H)</label>
     <div class="dimensions">
       <input id='custom-width' onchange='dimensionUpdate()' class='dimension d-width' min='1' max='30' step="0.125" name='width' type='number' placeholder="Width"></input>
       <i class="fas d-x fa-times"></i>
       <input id='custom-height' onchange='dimensionUpdate()' class='dimension d-height' name='height' min='1' max='30' step="0.125" type='number' placeholder="Height"></input>
     </div>
     <div class="button-wrapper button-create button-disabled">
-        <span>Please Enter Dimensions</span>
+        <span class='noselect'>Please Enter Dimensions</span>
     </div>
   </div>
+</div>
 
 </div>
 
@@ -104,6 +601,7 @@
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="https://unpkg.com/tippy.js@6"></script>
 <link rel='stylesheet' href="https://unpkg.com/tippy.js@6/animations/shift-away.css"></link>
+<link rel='stylesheet' href="https://unpkg.com/tippy.js@6/themes/light.css"></link>
 
 <script src="https://kit.fontawesome.com/14604e7494.js" crossorigin="anonymous"></script>
 
@@ -255,8 +753,13 @@ for (let i = 0; i < presets.length; i++) {
     // Fill the custom box with preset values.
     custom_name.value = name;
     custom_unit.value = unit;
+    changeSizeMinMax()
     custom_width.value = width;
     custom_height.value = height;
+    bleed.value = 0;
+    crops.classList.add('disabled')
+    crops.value = "off"
+    
 
     var all_presets = document.querySelectorAll('.preset');
     for(let j = 0; j < all_presets.length; j++) {
@@ -279,35 +782,53 @@ for (let i = 0; i < presets.length; i++) {
 }
 
 tippy('.help-dpi', {
-        content: 'Figma uses 72 DPI - for example, Letter @ 72dpi will export to a PDF with an exact size of 8.5 x 11 inches.',
+        content: `<div style='padding: 4px;'>Figma uses 72 DPI natively - "Letter" at 72 DPI will export as a PDF exactly 8.5 x 11 inches.`,
         animation: 'shift-away',
         hideOnClick: false,
         placement: 'top',
-        //offset: -60
+        //offset: -60,
+        allowHTML: true,
+        theme: 'light'
 });
 
 tippy('.help-pages', {
-      content: 'How many pages would you like to create?',
+      content: `<div style='padding: 4px;'>How many pages would you like to create?</div>`,
       animation: 'shift-away',
       hideOnClick: false,
       placement: 'top',
-      //offset: -60
+      //offset: -60,
+      allowHTML: true,
+      theme: 'light'
 });
 
 tippy('.help-orientation', {
-      content: `Default is to use the orientation from the preset, but you may also force the orientation to Portrait or Landscape.`,
+      content: `<div style='padding: 4px;'>Default is to use the orientation from the preset, but you may also force the orientation to Portrait or Landscape.</div>`,
       animation: 'shift-away',
       hideOnClick: false,
       placement: 'top',
-      offset: -60
+      offset: -60,
+      allowHTML: true,
+      theme: 'light'
 });
 
 tippy('.help-bleed', {
-      content: `Bleed is the area to be "trimmed" from the page so as to have an "edge-to-edge" print. Bleed will increase the document size so it maintains it's dimensions.`,
+      content: `<div style='padding: 4px;'>Bleed is the area to be "trimmed" from the page so as to have an "edge-to-edge" print. Bleed will increase the document size by the selected amount so it maintains it's intended dimensions.</div>`,
       animation: 'shift-away',
       hideOnClick: false,
       placement: 'top',
-      offset: -60
+      offset: -60,
+      allowHTML: true,
+      theme: 'light'
+});
+
+tippy('.help-crops', {
+      content: `<div style='padding: 4px;'><strong>Requires a valid bleed value!</strong><br/><br/><strong>Expand Frame to Fit</strong><br/>Bleed frame size will increase so the crop marks are contained in the frame.<br /><br /><strong>Clip Outside Frame</strong><br/>Crop marks will clip outside the bleed frame, and may not be completely visible when exporting.</div>`,
+      animation: 'shift-away',
+      hideOnClick: false,
+      placement: 'top',
+      offset: -300,
+      allowHTML: true,
+      theme: 'light'
 });
 
 var custom_name = document.querySelector('#custom-name')
@@ -317,6 +838,7 @@ var custom_height = document.querySelector('#custom-height')
 var custom_button = document.querySelector('.button-create')
 var custom_button_wrapper = document.querySelector('.button-create')
 var bleed = document.querySelector('#bleed')
+var crops = document.querySelector('#crops-toggle')
 
 custom_button.addEventListener('click', function (event) {
   var dpi = document.querySelector('#dpis').value;
@@ -325,7 +847,7 @@ custom_button.addEventListener('click', function (event) {
   var width = custom_width.value;
   var height = custom_height.value;
   var pages = document.querySelector('#pages').value;
-  selectedPreset = {name: name, unit: unit, width: width, height: height, dpi: dpi, pages: pages, bleed: bleed.value}
+  selectedPreset = {name: name, unit: unit, width: width, height: height, dpi: dpi, pages: pages, bleed: bleed.value, crops: crops.value}
   
   if (custom_height.value != '' && custom_width.value != '') {
     if (custom_name.value == '') {
@@ -348,6 +870,9 @@ function changeSizeMinMax() {
     bleed.setAttribute('step', 0.125)
     bleed.setAttribute('max', 2)
 
+    crops.classList.add('disabled')
+    crops.value = "0"
+
   }
   if (custom_unit.value == 'mm') {
     custom_width.setAttribute('min', 30)
@@ -360,6 +885,9 @@ function changeSizeMinMax() {
     bleed.value = 0
     bleed.setAttribute('step', 1)
     bleed.setAttribute('max', 50)
+
+    crops.classList.add('disabled')
+    crops.value = "off"
 
   }
   var all_presets = document.querySelectorAll('.preset');
@@ -397,404 +925,14 @@ function dimensionUpdate() {
   }
 }
 
+function bleedUpdate() {
+  if (bleed.value != 0) {
+    crops.classList.add('disabled')
+    crops.classList.remove('disabled')
+  } else {
+    crops.classList.add('disabled')
+    crops.value = "0"
+  }
+}
+
 </script>
-
-<style>
-
-* {
-  font-family: 'Inter', sans-serif;
-}
-
-body {
-  overflow-y: hidden;
-  font-family: 'Inter', sans-serif;
-  background-color: #f0f0f0;
-  padding: 10px;
-}
-
-.disabled {
-  opacity: 0.5;
-  pointer-events: none;
-  display: none !important;
-}
-
-.flex-wrapper {
-  display: flex;
-  flex-direction: column;
-  max-height: 660px;
-}
-
-.art {
-  position: absolute;
-  right: 17px;
-}
-
-.settings {
-  border: 1px solid #E7E7ED;
-  border-top: 0px;
-  font-size: 14px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  background-color: #fff;
-  border-bottom: 0px solid #eee; 
-  box-sizing: border-box;
-  padding: 12px 5px;
-}
-
-.sidebar-label {
-  font-weight: 700;
-  margin-left: 2px;
-  margin-bottom: 5px;
-  margin-top: 2px;
-  font-size: 11px;
-  text-transform: uppercase;
-}
-
-.setting-label-container > .fa-question-circle {
-  font-size: 12px;
-  color: #333;
-  margin: auto 4px;
-  opacity: 0.5;
-}
-
-.setting-label-container {
-  margin-bottom: 6px;
-  font-size: 12px;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-
-.icon-landscape {
-  transform: rotate(90deg);
-}
-
-.setting {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin: 8px 20px;
-  margin-right: 8px;
-}
-
-.setting-pages > input {
-  width: 45px;
-}
-
-
-
-.setting > label {
-  font-weight: bold;
-  margin-right: 8px;
-}
-
-.settings-advanced {
-  margin: auto 10px;
-}
-
-.setting > input, .setting-select {
-  width: 75px;
-}
-
-.show-advanced {
-  font-size: 14px;
-  color: #bebebe;
-  margin: auto;
-  cursor: pointer;
-  transition: all 0.4s ease;
-}
-
-.show-advanced:hover {
-  color: #3894e9;
-  transition: all 0.2s ease;
-
-}
-
-input, select {
-  border: 0px;
-  height: 30px;
-  padding-left: 7px;
-  border-radius: 3px;
-  border: 1px solid #fafafa;
-  background-color: #f2f2f2;
-  box-sizing: border-box;
-}
-
-input:focus, select:focus {
-  border: 1px solid #E7E7ED;
-  outline: none;
-  box-sizing: border-box;
-}
-
-input:active, select:active {
-  border: 1px solid #E7E7ED;
-  outline: none;
-  box-sizing: border-box;
-}
-
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  border-radius: 1px;
-  border: 1px solid #E7E7ED;
-  background-color: #fff;
-  flex-grow: 1;
-  filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.05));
-  padding: 20px;
-  margin: 0px 0px;
-  margin-right: 0px;
-  box-sizing: border-box;
-  max-width: 406px;
-}
-
-.sidebar-active {
-  border: 1px solid #3894e9;
-}
-
-.sidebar select {
-  height: 36px;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.dimensions {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.dimension {
-  width: 165px;
-  flex-shrink: 1;
-  height: 36px;
-  padding-left: 14px;
-}
-
-.dimension::placeholder {
-  color: #5c5c5c;
-}
-
-.d-width {
-  margin-right: 2px;
-}
-
-.d-x {
-  font-size: 3px;
-  transform: scale(0.6);
-  vertical-align: middle;
-  margin: auto 3px;
-  padding-left: 5px;
-  padding-bottom: 12px;
-  opacity: 0.5;
-}
-
-.sidebar > *::placeholder, .sidebar > select::placeholder {
-  color: #5c5c5c;
-}
-
-.custom-label {
-  font-weight: 400;
-  font-size: 20px;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-
-.sidebar > input {
-  height: 36px;
-  padding-left: 14px;
-  margin-bottom: 10px;
-  margin-right: 0px;
-}
-
-.button-create {
-  width: 100%;
-  margin: 0px;
-  margin-top: 18px;
-  height: 48px;
-  background-color: #3894e9;
-  color: #fff;
-  font-weight: 600;
-  font-size: 15px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  line-height: 90%;
-  border-radius: 3px;
-  cursor: pointer;
-  filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.1));
-  -webkit-transition: all 0.2s 0s ease;
-  -moz-transition: all 0.2s 0s ease;
-  -o-transition: all 0.2s 0s ease;
-  transition: all 0.2s 0s ease;
-}
-
-.button-create:hover {
-  filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.15));
-  -webkit-transition: all 0.2s 0s ease;
-  -moz-transition: all 0.2s 0s ease;
-  -o-transition: all 0.2s 0s ease;
-  transition: all 0.2s 0s ease;
-}
-
-.button-disabled {
-  background-color: #f0f0f0;
-  cursor: not-allowed;
-  font-weight: 400;
-  color: rgb(160, 160, 160);
-  border: 1px solid #E7E7ED;
-  -webkit-transition: all 0.2s 0s ease;
-  -moz-transition: all 0.2s 0s ease;
-  -o-transition: all 0.2s 0s ease;
-  transition: all 0.2s 0s ease;
-}
-
-.button-disabled:hover {
-  filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0));
-}
-
-.button-disabled > .button-create {
-  pointer-events: none;
-}
-
-.fas {
-  font-size: 18px;
-  margin-bottom: 2px;
-  margin-right: 12px;
-}
-
-.presets {
-  margin: 0px 0px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 5px;
-}
-
-.category {
-  display: inline-flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: -6px 0 0 -6px;
-  margin-bottom: 6px;
-}
-
-.category-label {
-  font-weight: 400;
-  margin-bottom: 10px;
-}
-
-.preset {
-  color: #5a5a5a;
-  font-family: 'Inter', sans-serif;
-  width: 199px;
-  height: 42px;
-  padding: 0px 16px;
-  border-radius: 1px;
-  background-color: #fff;
-  border: 1px solid #E7E7ED;
-  margin: 6px 0 0 6px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-  box-sizing: border-box;
-  filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.05));
-  -webkit-transition: filter 0.2s 0s ease;
-  -moz-transition: filter 0.2s 0s ease;
-  -o-transition: filter 0.2s 0s ease;
-  transition: filter 0.2s 0s ease;
-}
-
-.preset:hover, .preset-hover {
-  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.05));
-  font-weight: bold;
-  color: #3894e9;
-  background-color: #fff;
-  border: 1px solid #3894e9;
-  -webkit-transition: filter 0.2s 0s ease;
-  -moz-transition: filter 0.2s 0s ease;
-  -o-transition: filter 0.2s 0s ease;
-  transition: filter 0.2s 0s ease;
-}
-
-.name {
-  font-weight: 600;
-  font-size: 12px;
-  margin-right: 7px;
-  -webkit-transition: all 0.2s 0s ease;
-  -moz-transition: all 0.2s 0s ease;
-  -o-transition: all 0.2s 0s ease;
-  transition: all 0.2s 0s ease;
-}
-
-.preset-name-icon {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.preset > .size {
-  font-weight: normal;
-  font-size: 11px;
-  -webkit-transition: all 0.2s 0s ease;
-  -moz-transition: all 0.2s 0s ease;
-  -o-transition: all 0.2s 0s ease;
-  transition: all 0.2s 0s ease;
-}
-
-.preset-container {
-  margin: 0px 0px;
-  margin-bottom: 6px;
-  margin-right: 0px;
-  max-width: 500px;
-  height: calc(100% - 110px);
-  box-sizing: border-box;
-}
-
-.header {
-  font-family: 'Montserrat', sans-serif;
-  border-bottom: 0px;
-  box-sizing: border-box;
-  padding: 0px 30px;
-  width: 100%;
-  height: 110px;
-  background: linear-gradient(130.04deg, #48A7FF 0%, #2579C6 100%);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.title, .subtitle {
-  margin: 0px;
-}
-
-.title {
-  font-weight: 700;
-  font-size: 44px;
-  font-family: 'Montserrat', sans-serif;
-  line-height: 90%;
-}
-
-.section-title > * {
-  margin-top: 0px;
-  margin-bottom: 8px;
-  font-weight: bold;
-  color: #222;
-}
-
-.subtitle {
-  font-weight: 400;
-  font-size: 18px;
-}
-
-
-</style>
