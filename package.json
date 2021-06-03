@@ -9,6 +9,19 @@
   "author": "",
   "license": "",
   "devDependencies": {
-    "@figma/plugin-typings": "^1.19.0"
+    "@figma/plugin-typings": "^1.19.0",
+    "css-loader": "^5.2.6",
+    "html-webpack-inline-source-plugin": "^1.0.0-beta.2",
+    "html-webpack-plugin": "^5.3.1",
+    "style-loader": "^2.0.0",
+    "ts-loader": "^9.2.2",
+    "typescript": "^4.3.2",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.9.2",
+    "tippy.js": "^6.3.1"
   }
 }

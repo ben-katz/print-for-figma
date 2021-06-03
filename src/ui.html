@@ -1,0 +1,102 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<div class="flex-wrapper">
+  
+  <div class="preset-container">
+    <div class="presets">
+        <div class="category ansi"></div>
+        <div class="category iso"></div>
+        <div class="category misc"></div>
+    </div>
+  </div>
+
+  <div class="columns">
+  <div class="settings-container">
+    <span class="noselect settings-title">Document Settings</span>
+    <hr class="settings-divider">
+    <div class="settings">
+      <div class="setting setting-unit">
+        <div class="setting-label-container">
+          <label class='noselect' for="unit">Unit</label>
+        </div>
+        <select id='custom-unit' name='unit'>
+          <option value="inches" selected="selected">inch</option>
+          <option value="mm">mm</option>
+        </select>
+      </div>
+    
+      <div class="setting setting-pages">
+        <div class="setting-label-container">
+          <label class='noselect' for='pages'>Pages</label>
+          <!-- <i class="fas help-pages fa-question-circle"></i> -->
+        </div>
+        <input type='number' min='1' max='16' value='1' name='pages' id="pages">
+      </div>
+    
+      <div class="setting setting-dpi">
+        <div class="setting-label-container">
+          <label class='noselect' for='dpis'>DPI</label>
+          <i class="fas help-dpi fa-question-circle"></i>
+        </div>
+        <select name='dpis' id="dpis">
+          <option value="72" selected="selected">72</option>
+          <option value="150">150</option>
+          <option value="300">300</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="settings">
+      <div class="setting setting-bleed">
+        <div class="setting-label-container">
+          <label class='noselect' for='bleed'>Bleed</label>
+          <i class="fas help-bleed fa-question-circle"></i>
+        </div>
+        <input type='number' min='0' max='2' step="0.125" name='bleed' type='number' value='0' name='bleed' id="bleed">
+      </div>
+
+      <div class="setting setting-crops-toggle">
+        <div class="setting-label-container">
+          <label class='noselect' for='crops-toggle'>Crop Marks</label>
+          <i class="fas help-crops fa-question-circle"></i>
+        </div>
+        <select class="disabled" name='crops-toggle' id="crops-toggle">
+          <option value="off" selected="selected">Disabled</option>
+          <option value="on-expand">Enabled (Expand Frame to Fit)</option>
+          <option value="on-clip">Enabled (Clip Outside Frame)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <label class='noselect sidebar-label' for="name">Name</label>
+    <input id='custom-name' name='name' type='text' placeholder="My Document"></input>
+
+    <label class='noselect sidebar-label' for="dimension">Dimensions (W x H)</label>
+    <div class="dimensions">
+      <input id='custom-width' class='dimension d-width' min='1' max='30' step="0.125" name='width' type='number' placeholder="Width"></input>
+      <i class="fas d-x fa-times"></i>
+      <input id='custom-height' class='dimension d-height' name='height' min='1' max='30' step="0.125" type='number' placeholder="Height"></input>
+    </div>
+    <div class="button-wrapper button-create button-disabled">
+        <span class='noselect'>Please Enter Dimensions</span>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- Development -->
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+
+<!-- Production -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<link rel='stylesheet' href="https://unpkg.com/tippy.js@6/animations/shift-away.css"></link>
+<link rel='stylesheet' href="https://unpkg.com/tippy.js@6/themes/light.css"></link>
+
+<script src="https://kit.fontawesome.com/14604e7494.js" crossorigin="anonymous"></script>
+
